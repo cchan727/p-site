@@ -3,9 +3,14 @@
     box-sizing: border-box;
 }
 
+html {
+    /* 스크롤 이동을 부드럽게 */
+    scroll-behavior: smooth;
+}
+
 body {
     /* 글자 관련 기본(공통)스타일 추가 */
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: "Open snas", "Noto Sans KR", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
@@ -13,9 +18,9 @@ body {
 }
 
 /* 영문에만 적용할 폰트 */
-.font-en {
+/* .font-en {
     font-family: "Open Sans", sans-serif;
-}
+} */
 
 a {
     /* 밑줄 제거 */
@@ -27,6 +32,59 @@ a {
     max-width: 1200px;
     /* 가로 너비를 가진 블록 요소의 가운데 정렬 */
     margin: 0 auto;
+}
+
+.title {
+    font-size: 50px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    background-color: #333;
+    margin: 24px auto 0;
+}
+
+img {
+    /* 이미지가 인라인 요소라서 발생하는 문자 기준선(Baseline) 아래의 공간을 제거하기 위해 */
+    display: block;
+}
+
+.btn {
+    display: block;
+    width: 120px;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+.btn.btn--purple {
+  color: #9b30ff;
+  border-color: #9b30ff;
+}
+.btn.btn--purple:hover {
+  color: #fff;
+  background-color: #9b30ff;
+}
+.btn.btn--brown {
+  color: #592b18;
+  border-color: #592b18;
+}
+.btn.btn--brown:hover {
+  color: #fff;
+  background-color: #592b18;
 }
 
 .animate-flash {
@@ -114,6 +172,228 @@ header nav ul li a:hover::after {
 
 .visual > .inner .purple {
     color: #9b30ff;
+}
+
+/* ABOUT */
+.about {
+    padding: 150px 0;
+}
+
+.about > .inner {
+    position: relative;
+}
+
+.about .about__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about .about__wrapper .about__img {
+    width: 40%;
+}
+
+.about .about__wrapper .about__img img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.1);
+}
+
+.about .about__wrapper .about__text {
+    width: 40%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.about .about__wrapper .about__text .slogan {
+  font-size: 35px;
+  font-weight: bold;
+}
+.about .about__wrapper .about__text h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+.about .about__wrapper .about__text h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.about .about__wrapper .about__text li {
+  line-height: 1.8;
+}
+
+.about .about__btn {
+    position: absolute;
+    bottom: -30px;
+    right: 30px;
+}
+
+/* .about .about__btn a {
+    display: flex;
+    align-items: center;
+} */
+.about .about__btn img {
+    display: inline;
+    vertical-align: middle;
+    width: 28px;
+    margin-right: 10px;
+}
+
+/* SKILL */
+.skill {
+    padding: 150px 0;
+    background-color: #000;
+    color: #fff;
+}
+
+.skill .title::after {
+    background-color: #fff;
+}
+
+.skill .skill__list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+}
+
+.skill .skill__list > li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* 애니메이션 효과 추가 */
+    /* 방법1: position
+    position: relative;
+    top: 100px; */
+    
+    /* 방법2: transform */
+    transform: translateY(100px);
+    transition: 1s;
+    opacity: 0;
+}
+/* hover로 먼저 테스트 후 스크롤 이벤트 넣기 */
+/* .skill .skill__list > li:hover { */
+.skill.show .skill__list > li {
+    /* 방법1: position
+    top: 0; */
+
+    /* 방법2: transform */
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.skill .skill__list > li:nth-child(1) { transition-delay: 0.2s; }
+.skill .skill__list > li:nth-child(2) { transition-delay: 0.4s; }
+.skill .skill__list > li:nth-child(3) { transition-delay: 0.6s; }
+.skill .skill__list > li:nth-child(4) { transition-delay: 0.8s; }
+.skill .skill__list > li:nth-child(5) { transition-delay: 1s; }
+
+.skill .skill__list li h3 {
+    width: 50px;
+    height: 40px;
+    background-color: #9b30ff;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: -2px;
+    transform: rotate(-20deg);
+    transition: 0.5s;
+}
+
+.skill .skill__list li h3:hover {
+    transform: rotate(0deg);
+}
+
+/* PROJECT */
+.project {
+    padding: 150px 0;
+}
+
+.project .port {
+    display: flex;
+    margin: 20px 0;
+}
+
+.project .port .port__img, .project .port .port__text {
+    width: 50%;
+    height: 400px;
+}
+
+.project .port .port__img .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.project .port .port__img .swiper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.project .port .port__text {
+    padding: 30px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.project .port .port__text h3 {
+    font-size: 20px;
+    font-weight: 800;
+}
+.project .port .port text li {
+    line-height: 1.8;
+}
+.project .port .port__text li span {
+    font-weight: bold;
+}
+.project .port .btn-group {
+    display: flex;
+    column-gap: 40px;
+}
+
+/* MODAL */
+#imageModal {
+    /* 화면(뷰포트) 전체 영역 덮기 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    display: none; /* 처음엔 숨김 상태 */
+}
+#imageModal .modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+}
+#imageModal .modal-header {
+    padding: 16px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 8px 8px 0 0;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#imageModal .modal-header .btn-close {
+    font-size: 30px;
+    cursor: pointer;
+}
+#imageModal .modal-header .btn-close:hover {
+    color: #aaa;
+}
+#imageModal .modal-body {
+    padding: 16px;
 }
 
 

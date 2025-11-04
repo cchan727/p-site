@@ -4,26 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Full Stack Developer</title>
-
   <!-- 파비콘 적용-->
   <!-- favicon.ico은 프로젝트 최상위 폴더(Root)경로에 포함시키면 자동으로 적용
   최상위 경로에 없거나, ico가 아닌 별도 파일을 가진 경우에는 <link>로 적용 -->
   <link rel="icon" href="favicon.ico">
   <!-- (참고) https://iconifier.net -->
   <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
-  
   <!-- 구글 폰트 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-
   <!-- 구글 머티리어 아이콘 연결 -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
   <link rel="stylesheet" href="css/main.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+  <!-- ScrollMagic 연결 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
   <!-- defer속성을 넣으면, body태그를 읽고 스크립트 실행 -->
   <script src="js/main.js" defer></script>
-    
 </head>
 <body>
   <!-- HEADER -->
@@ -91,5 +92,169 @@
         </h1>
     </div>
   </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="inner">
+      <h2 class="title">ABOUT</h2>
+      <div class="about__wrapper">
+        <div class="about__img">
+          <!-- 본인 이미지 넣기 -->
+          <img src="/images/profile.jpg" alt="프로필">
+        </div>
+        <div class="about__text">
+          <!-- 본인 슬로건, 이름, 학력 등 작성 -->
+          <strong class="slogan">Simple is Best</strong>
+          <h3>chae 1900.00.00</h3>
+          <ul>
+            <li>10.01 ~ 12.01</li>
+            <li>10.01 ~ 12.01</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 연락처 버튼 -->
+      <div class="about__btn">
+        <a href="#contact">
+          <img src="/images/icon/icon_contact.png" alt="연락처">CONTACT
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILL -->
+  <section id="skill" class="skill scroll-spy">
+    <div class="inner">
+      <h2 class="title">SKILL</h2>
+      <ul class="skill__list">
+        <li>
+          <h3>Java</h3>
+          <h4>Java<br>Programing</h4>
+          <ul>
+            <li>객체지향</li>
+            <li>파일 입출력</li>
+            <li>JDBC</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Html</h3>
+          <h4>HTML5</h4>
+          <ul>
+            <li>웹페이지 구조 설계</li>
+            <li>시맨틱 태그</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Css</h3>
+          <h4>CSS3</h4>
+          <ul>
+            <li>웹페이지 레이아웃 설계</li>
+            <li>웹페이지 디자인</li>
+            <li>반응형 제작</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Js</h3>
+          <h4>JavaScript</h4>
+          <ul>
+            <li>DOM 조작, 제어</li>
+            <li>이벤트 처리</li>
+            <li>비동기 통신</li>
+          </ul>
+        </li>
+        <li>
+          <h3>React</h3>
+          <h4>React JS</h4>
+          <ul>
+            <li>SPA 개발</li>
+            <li>전역 상태 관리</li>
+            <li>클라이언트 라우팅</li>
+            <li>CSR 방식 앱개발</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECT -->
+  <section class="project" id="project">
+    <div class="inner">
+      <h2 class="title">PROJECT</h2>
+      <div class="port">
+        <div class="port__img">
+          <!-- 이미지 슬라이드 -->
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="images/work_1.jpg" alt="산출물1">
+              </div>
+              <div class="swiper-slide">
+                <img src="images/work_2.jpg" alt="산출물2">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+        <div class="port__text">
+          <h3>프로젝트명</h3>
+          <ul>
+            <li><span>주요 기능 : </span>주요 기능 설명</li>
+            <li><span>적용 기술 : </span>HTML, CSS, JS, React, Java, Spring Boot</li>
+            <li><span>GitHub : </span>깃허브 주소</li>
+            <li><span>URL : </span>배포 주소</li>
+          </ul>
+          <div class="btn-group">
+            <a href="javascript:void(0)" class="btn">README</a>
+            <a href="javascript:void(0)" class="btn btn--brown btn-modal-image" data-image-src="/images/work_1.jpg">이미지</a>
+          </div>
+        </div>
+      </div>
+      <div class="port">
+        <div class="port__img">
+          <!-- 이미지 슬라이드 -->
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="images/work_3.jpg" alt="산출물3">
+              </div>
+              <div class="swiper-slide">
+                <img src="images/work_4.jpg" alt="산출물4">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+        <div class="port__text">
+          <h3>프로젝트명</h3>
+          <ul>
+            <li><span>주요 기능 : </span>주요 기능 설명</li>
+            <li><span>적용 기술 : </span>HTML, CSS, JS, React, Java, Spring Boot</li>
+            <li><span>GitHub : </span>깃허브 주소</li>
+            <li><span>URL : </span>배포 주소</li>
+          </ul>
+          <div class="btn-group">
+            <a href="javascript:void(0)" class="btn">README</a>
+            <a href="javascript:void(0)" class="btn btn--brown btn-modal-image" data-image-src="/images/work_3.jpg">이미지</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE MODAL -->
+  <div id="imageModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        이미지
+        <span class="material-symbols-outlined btn-close">close</span>
+      </div>
+      <div class="modal-body">
+        <img src="" alt="이미지">
+      </div>
+    </div>
+  </div>
 </body>
 </html>
