@@ -48,3 +48,62 @@ imageModalBtnList.forEach(b => b.addEventListener('click', () => {
 imageCloseBtn.addEventListener('click', () => {
     imageModal.style.display = "none";
 });
+
+// ESC 키로 닫기
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    imageModal.style.display = "none";
+  }
+});
+
+// 모달 바깥 영역 클릭 시 닫기
+imageModal.addEventListener('click', function(e) {
+  // e.target : 현재 이벤트가 발생한 대상(사용자가 실제로 클릭한 가장 안쪽 요소)
+  // e.currentTarget : 이벤트가 바인딩된 요소(여기선 imageModal), this와 동일
+  if (e.target === e.currentTarget) {
+    this.style.display = "none";
+  }
+});
+
+// 현재 연도 표시
+// 날짜 정보를 가진 JS의 Date 객체를 활용
+const yearEl = document.querySelector('.this-year');
+yearEl.textContent = new Date().getFullYear();
+
+// 페이지 최상단으로 이동
+const toTopEl = document.querySelector('#toTop');
+
+// 페이지에 스크롤 이벤트 감지를 추가
+// 브라우저는 문서 전체의 스크롤을 window 기준으로 처리
+// window : 브라우저 창 객체
+window.addEventListener('scroll', function() {
+  // window.scrollY : y축 스크롤 위치
+  // 페이지 스크롤 위치가 500px를 넘으면 요소를 보이고, 500px를 넘지 않으면 요소 숨기기
+  if (this.window.scrollY > 500) {
+    toTopEl.style.opacity = '1';
+    toTopEl.style.transform = 'translateX(0)';
+
+    visualSapnEls.forEach(function (spanEl) {
+      spanEl.classList.remove('animate-flash');
+    });
+  } else {
+    toTopEl.style.opacity = '0';
+    toTopEl.style.transform = 'translateX(150px)';
+
+    visualSapnEls.forEach(function (spanEl) {
+      spanEl.classList.add('animate-flash');
+    });
+  }
+});
+
+// 모바일용 메뉴
+const hamburgerBtn = document.querySelector('.btn-hamburger');
+const navEl = document.querySelector('header nav');
+hamburgerBtn.addEventListener('click', function() {
+  // if (navEl.classList.contains('active')) {
+  //   navEl.classList.remove('active');
+  // } else {
+  //   navEl.classList.add('active');
+  // }
+  navEl.classList.toggle('active');
+});
